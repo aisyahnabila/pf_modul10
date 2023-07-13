@@ -133,4 +133,5 @@ Route::get('exportExcel', [EmployeeController::class, 'exportExcel'])->name('emp
 
 // Pdf
 Route::get('exportPdf', [EmployeeController::class, 'exportPdf'])->name('employees.exportPdf');
+
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

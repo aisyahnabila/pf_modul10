@@ -83,6 +83,7 @@ class EmployeeController extends Controller
         // Get File
         $file = $request->file('cv');
 
+
         if ($file != null) {
             $originalFilename = $file->getClientOriginalName();
             $encryptedFilename = $file->hashName();
@@ -108,6 +109,11 @@ class EmployeeController extends Controller
         $employee->email = $request->email;
         $employee->age = $request->age;
         $employee->position_id = $request->position;
+
+        if ($file != null) {
+            $employee->original_filename = $originalFilename;
+            $employee->encrypted_filename = $encryptedFilename;
+        }
         $employee->save();
 
         Alert::success('Added Successfully', 'Employee Data Added Successfully.');
